@@ -1,0 +1,80 @@
+2025-10-20 19:03:38 [::1][-][-][error][yii\db\IntegrityException] PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`products_api`.`products`, CONSTRAINT `fk_products_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) in C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\Command.php:1320
+Stack trace:
+#0 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\Command.php(1320): PDOStatement->execute()
+#1 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\Command.php(1120): yii\db\Command->internalExecute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\Schema.php(431): yii\db\Command->execute()
+#3 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\ActiveRecord.php(610): yii\db\Schema->insert('products', Array)
+#4 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\ActiveRecord.php(576): yii\db\ActiveRecord->insertInternal(NULL)
+#5 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\BaseActiveRecord.php(688): yii\db\ActiveRecord->insert(true, NULL)
+#6 C:\xampp\htdocs\products-api-yii2\controllers\ProductController.php(89): yii\db\BaseActiveRecord->save()
+#7 [internal function]: app\controllers\ProductController->actionBulkCreate()
+#8 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#9 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('bulk-create', Array)
+#11 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('product/bulk-cr...', Array)
+#12 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 C:\xampp\htdocs\products-api-yii2\web\index.php(10): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\IntegrityException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`products_api`.`products`, CONSTRAINT `fk_products_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+The SQL being executed was: INSERT INTO `products` (`name`, `inventory_count`, `cost`, `selling_price`, `supplier_id`) VALUES ('Eraser', 150, '0.25', '0.60', 3) in C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\Schema.php:676
+Stack trace:
+#0 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\Command.php(1325): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `pr...')
+#1 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\Command.php(1120): yii\db\Command->internalExecute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\Schema.php(431): yii\db\Command->execute()
+#3 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\ActiveRecord.php(610): yii\db\Schema->insert('products', Array)
+#4 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\ActiveRecord.php(576): yii\db\ActiveRecord->insertInternal(NULL)
+#5 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\db\BaseActiveRecord.php(688): yii\db\ActiveRecord->insert(true, NULL)
+#6 C:\xampp\htdocs\products-api-yii2\controllers\ProductController.php(89): yii\db\BaseActiveRecord->save()
+#7 [internal function]: app\controllers\ProductController->actionBulkCreate()
+#8 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#9 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('bulk-create', Array)
+#11 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('product/bulk-cr...', Array)
+#12 C:\xampp\htdocs\products-api-yii2\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 C:\xampp\htdocs\products-api-yii2\web\index.php(10): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1452
+    [2] => Cannot add or update a child row: a foreign key constraint fails (`products_api`.`products`, CONSTRAINT `fk_products_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+)
+
+2025-10-20 19:03:38 [::1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\xampp\\htdocs\\products-api-yii2\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '60492'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/api/products/bulk'
+    'REQUEST_METHOD' => 'POST'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\xampp\\htdocs\\products-api-yii2\\web\\index.php'
+    'PATH_INFO' => '/api/products/bulk'
+    'PHP_SELF' => '/index.php/api/products/bulk'
+    'CONTENT_TYPE' => 'application/json'
+    'HTTP_CONTENT_TYPE' => 'application/json'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.48.0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '4872c7fc-70cc-4208-9cf0-1f1b2c416015'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '683'
+    'HTTP_CONTENT_LENGTH' => '683'
+    'REQUEST_TIME_FLOAT' => 1760979818.4179
+    'REQUEST_TIME' => 1760979818
+]
